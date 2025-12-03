@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: amnezia-vpn
+    env: docker
+    dockerfilePath: ./Dockerfile
+    repo: https://github.com/nokitakaze/AmneziaVPNDockerServer
+    plan: free
+    envVars:
+      - key: PORT
+        value: 80
+      - key: VPN_PORT
+        value: 51820  # UDP for WireGuard/AmneziaWG
+    healthCheckPath: /
